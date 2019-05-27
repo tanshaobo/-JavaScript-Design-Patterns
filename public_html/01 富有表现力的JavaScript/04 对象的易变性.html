@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>TODO write content</div>
+    <script>
+      //js 特点 对象被定义后，依然可以通过外部条件来更改函数本身
+      function displayError(message) {
+        displayError.numTimesExecuted++
+        alert(message)
+      }
+      displayError.numTimesExecuted = 0
+//      displayError('a')
+      for (key in displayError) {
+        console.log(key, displayError[key])
+      }
+
+      //修改已经定义好的类和实例化对象
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+      }
+      Person.prototype = {
+        getName: function () {
+          return this.name
+        },
+        getAge: function () {
+          return this.age
+        }
+      }
+
+      var alice = new Person('Alice', 18)
+      var bill = new Person('Bill', 36)
+
+      Person.prototype.getGreeting = function () {
+         return 'Hi ' + this.getName() + '!'
+      }
+      
+      alice.displayGreeting = function () {
+        console.log(this.getGreeting())
+      }
+      console.log(alice.displayGreeting())
+      
+    </script>
+  </body>
+</html>

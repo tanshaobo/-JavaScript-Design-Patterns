@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>TODO write content</div>
+    <script>
+      // 1 过程式程序设计
+      function startAnimation() {
+        console.log("It's start")
+      }
+      function stopAnimation() {
+        console.log("It's stop")
+      }
+      // 2 定义类
+      var Anim1 = function () {
+
+      }
+      Anim1.prototype.start = function () {
+        console.log("It's start")
+      }
+      Anim1.prototype.stop = function () {
+        console.log("It's stop")
+      }
+      var myAnim = new Anim1()
+      myAnim.start()
+      myAnim.stop()
+      // 3 定义类 并封装在一条声明中
+      var Anim2 = function () {
+
+      }
+      Anim2.prototype = {
+        start: function () {
+          console.log("It's start")
+        },
+        stop: function () {
+          console.log("It's stop")
+        }
+      }
+      // 4 使用一个为类添加方法的方式
+      Function.prototype.method = function (name, fn) {
+        this.prototype[name] = fn
+      }
+      var Anim3 = function(){
+        
+      }
+      Anim3.method('start', function(){
+        console.log("It's start")
+      })
+      Anim3.method('stop',function(){
+        console.log("It's stop")
+      })
+      // 5 在4的基础上进行链式调用
+      Function.prototype.method = function (name, fn){
+        this.prototype[name] = fn
+        return this
+      }
+      var Anim4 = function() {
+        
+      }
+      Anim4.method('start',function(){
+        console.log("It's start")
+      }).method('stop', function(){
+        console.log("It's stop")
+      })
+    </script>
+  </body>
+</html>

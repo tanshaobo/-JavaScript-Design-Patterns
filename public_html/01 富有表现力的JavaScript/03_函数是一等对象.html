@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>TODO write content</div>
+    <script>
+      // 匿名函数
+      (function(){
+        var foo = 10
+        var bar = 2
+        console.log(foo * bar)
+      })()
+      // 无声明式 匿名函数
+      ;(function(f,b){
+        console.log(f * b)
+      })(10,2)
+      // 匿名函数可返回值
+      var baz = (function(foo, bar){
+        return foo * bar
+      })(10, 2) // baz will equal 20
+      // 匿名函数用途之闭包
+      var bat
+      (function(){
+        var foo = 10
+        var bar = 2
+        bat = function(){
+          console.log(foo,bar)
+          return foo * bar
+        }
+      })()
+      bat()
+    </script>
+  </body>
+</html>
